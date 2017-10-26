@@ -1,9 +1,9 @@
 ﻿using System;
-using DTO.Implementation;
+using DataTransformation.Implementation;
 
-namespace MVVMStarterDemoB.Models.Domain.Sale
+namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
 {
-    public class SaleDTO : DTOBase
+    public class SaleViewModel : TransformedDataBase
     {
         public int CarKey { get; set; }
 
@@ -28,7 +28,7 @@ namespace MVVMStarterDemoB.Models.Domain.Sale
 
         public override void SetValuesFromObject(Object obj)
         {
-            Sale saleObj = (obj as Sale);
+            Models.Domain.Sale.Sale saleObj = (obj as Models.Domain.Sale.Sale);
             if (saleObj == null)
             {
                 throw new ArgumentException(nameof(SetValuesFromObject));

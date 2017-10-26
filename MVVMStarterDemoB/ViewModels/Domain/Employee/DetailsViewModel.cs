@@ -1,11 +1,11 @@
 ﻿using System;
-using DTO.Interfaces;
+using DataTransformation.Interfaces;
 using ExtensionsViewModel.Implementation;
-using MVVMStarterDemoB.Models.Domain.Employee;
+using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Employee
 {
-    public class DetailsViewModel : DetailsViewModelWithSelectableImage<EmployeeDTO>
+    public class DetailsViewModel : DetailsViewModelWithSelectableImage<EmployeeViewModel>
     {
         public string Name
         {
@@ -57,7 +57,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Employee
             get { return TypedDataObject.EmployedDate; }
             set
             {
-                TypedDataObject.EmployedDate = value;
+                TypedDataObject.EmployedDate = value.DateTime;
                 OnPropertyChanged();
             }
         }
@@ -72,7 +72,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Employee
             }
         }
 
-        public DetailsViewModel(IDTO obj) : base(obj, "Employee")
+        public DetailsViewModel(ITransformedData obj) : base(obj, "Employee")
         {
         }
     }

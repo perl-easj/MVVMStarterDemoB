@@ -1,9 +1,9 @@
 ﻿using System;
-using DBOImplementation;
+using DataTransformation.Implementation;
 
-namespace MVVMStarterDemoB.Models.Domain.Car
+namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarDBO : DBOBase
+    public class CarDTO : TransformedDataBase
     {
         public int Id { get; set; }
 
@@ -25,9 +25,13 @@ namespace MVVMStarterDemoB.Models.Domain.Car
 
         public int ImageKey { get; set; }
 
+        public override void SetDefaultValues()
+        {
+        }
+
         public override void SetValuesFromObject(object obj)
         {
-            Car carObj = (obj as Car);
+            Models.Domain.Car.Car carObj = (obj as Models.Domain.Car.Car);
             if (carObj == null)
             {
                 throw new ArgumentException(nameof(SetValuesFromObject));

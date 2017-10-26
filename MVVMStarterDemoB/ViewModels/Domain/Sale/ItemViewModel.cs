@@ -1,15 +1,18 @@
-﻿using DTO.Interfaces;
+﻿using DataTransformation.Interfaces;
 using ExtensionsViewModel.Implementation;
 using InMemoryStorage.Implementation;
+using MVVMStarterDemoB.DataTransformations.Domain.Car;
+using MVVMStarterDemoB.DataTransformations.Domain.Customer;
+using MVVMStarterDemoB.DataTransformations.Domain.Employee;
+using MVVMStarterDemoB.DataTransformations.Domain.Sale;
 using MVVMStarterDemoB.Models.App;
-using MVVMStarterDemoB.Models.Domain.Car;
-using MVVMStarterDemoB.Models.Domain.Customer;
-using MVVMStarterDemoB.Models.Domain.Employee;
-using MVVMStarterDemoB.Models.Domain.Sale;
+using MVVMStarterDemoB.ViewModels.Domain.Car;
+using MVVMStarterDemoB.ViewModels.Domain.Customer;
+using MVVMStarterDemoB.ViewModels.Domain.Employee;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {
-    public class ItemViewModel : ItemViewModelWithImage<SaleDTO>
+    public class ItemViewModel : ItemViewModelWithImage<SaleViewModel>
     {
         public string DescriptionCar
         {
@@ -41,22 +44,22 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Sale
             get { return GetCar() != null ? GetCar().ImageKey : StorableBase.NullKey; }
         }
 
-        private CarDTO GetCar()
+        private CarViewModel GetCar()
         {
-            return ObjectProvider.CarCatalog.ReadDTO(TypedDataObject.CarKey) as CarDTO;
+            return ObjectProvider.CarCatalog.ReadTransformed(TypedDataObject.CarKey) as CarViewModel;
         }
 
-        private CustomerDTO GetCustomer()
+        private CustomerViewModel GetCustomer()
         {
-            return ObjectProvider.CustomerCatalog.ReadDTO(TypedDataObject.CustomerKey) as CustomerDTO;
+            return ObjectProvider.CustomerCatalog.ReadTransformed(TypedDataObject.CustomerKey) as CustomerViewModel;
         }
 
-        private EmployeeDTO GetEmployee()
+        private EmployeeViewModel GetEmployee()
         {
-            return ObjectProvider.EmployeeCatalog.ReadDTO(TypedDataObject.EmployeeKey) as EmployeeDTO;
+            return ObjectProvider.EmployeeCatalog.ReadTransformed(TypedDataObject.EmployeeKey) as EmployeeViewModel;
         }
 
-        public ItemViewModel(IDTO obj) : base(obj)
+        public ItemViewModel(ITransformedData obj) : base(obj)
         {
         }
     }

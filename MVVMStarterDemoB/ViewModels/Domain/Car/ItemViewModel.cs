@@ -1,10 +1,10 @@
-﻿using DTO.Interfaces;
+﻿using DataTransformation.Interfaces;
 using ExtensionsViewModel.Implementation;
-using MVVMStarterDemoB.Models.Domain.Car;
+using MVVMStarterDemoB.DataTransformations.Domain.Car;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class ItemViewModel : ItemViewModelWithImage<CarDTO>
+    public class ItemViewModel : ItemViewModelWithImage<CarViewModel>
     {
         public override int ImageKey
         {
@@ -16,7 +16,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Car
             get { return TypedDataObject.LicensePlate; }
         }
 
-        public ItemViewModel(IDTO obj) : base(obj)
+        public ItemViewModel(ITransformedData obj) : base(obj)
         {
         }
     }

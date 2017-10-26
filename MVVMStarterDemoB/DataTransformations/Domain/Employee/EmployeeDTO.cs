@@ -1,9 +1,9 @@
 ﻿using System;
-using DBOImplementation;
+using DataTransformation.Implementation;
 
-namespace MVVMStarterDemoB.Models.Domain.Employee
+namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeDBO : DBOBase
+    public class EmployeeDTO : TransformedDataBase
     {
         public int Id { get; set; }
 
@@ -21,9 +21,13 @@ namespace MVVMStarterDemoB.Models.Domain.Employee
 
         public int CarsSold { get; set; }
 
+        public override void SetDefaultValues()
+        {
+        }
+
         public override void SetValuesFromObject(object obj)
         {
-            Employee employeeObj = (obj as Employee);
+            Models.Domain.Employee.Employee employeeObj = (obj as Models.Domain.Employee.Employee);
             if (employeeObj == null)
             {
                 throw new ArgumentException(nameof(SetValuesFromObject));

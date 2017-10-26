@@ -1,10 +1,10 @@
 ﻿using System;
-using DTO.Implementation;
+using DataTransformation.Implementation;
 using MVVMStarterDemoB.Models.App;
 
-namespace MVVMStarterDemoB.Models.Domain.Employee
+namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeDTO : DTOBase
+    public class EmployeeViewModel : TransformedDataBase
     {
         public string FullName { get; set; }
 
@@ -36,7 +36,7 @@ namespace MVVMStarterDemoB.Models.Domain.Employee
 
         public override void SetValuesFromObject(Object obj)
         {
-            Employee employeeObj = (obj as Employee);
+            Models.Domain.Employee.Employee employeeObj = (obj as Models.Domain.Employee.Employee);
             if (employeeObj == null)
             {
                 throw new ArgumentException(nameof(SetValuesFromObject));

@@ -1,17 +1,17 @@
-﻿using DTO.Interfaces;
-using MVVMStarterDemoB.Models.Domain.Car;
+﻿using DataTransformation.Interfaces;
+using MVVMStarterDemoB.DataTransformations.Domain.Car;
 using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class ViewModelFactory : ViewModelFactoryBase<CarDTO>
+    public class ViewModelFactory : ViewModelFactoryBase<CarViewModel>
     {
-        public override IDTOWrapper CreateDetailsViewModel(IDTO obj)
+        public override ITransformedDataWrapper CreateDetailsViewModel(ITransformedData obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override IDTOWrapper CreateItemViewModel(IDTO obj)
+        public override ITransformedDataWrapper CreateItemViewModel(ITransformedData obj)
         {
             return new ItemViewModel(obj);
         }

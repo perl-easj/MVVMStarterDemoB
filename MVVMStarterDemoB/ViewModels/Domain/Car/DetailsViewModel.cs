@@ -1,10 +1,10 @@
-﻿using DTO.Interfaces;
+﻿using DataTransformation.Interfaces;
 using ExtensionsViewModel.Implementation;
-using MVVMStarterDemoB.Models.Domain.Car;
+using MVVMStarterDemoB.DataTransformations.Domain.Car;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CarDTO>
+    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CarViewModel>
     {
         public string Plate
         {
@@ -96,7 +96,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Car
             }
         }
 
-        public DetailsViewModel(IDTO obj) : base(obj, "Car")
+        public DetailsViewModel(ITransformedData obj) : base(obj, "Car")
         {
         }
     }

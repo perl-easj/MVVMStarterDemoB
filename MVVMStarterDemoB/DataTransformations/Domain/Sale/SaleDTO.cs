@@ -1,9 +1,9 @@
 ﻿using System;
-using DBOImplementation;
+using DataTransformation.Implementation;
 
-namespace MVVMStarterDemoB.Models.Domain.Sale
+namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
 {
-    public class SaleDBO : DBOBase
+    public class SaleDTO : TransformedDataBase
     {
         public int Id { get; set; }
 
@@ -17,9 +17,13 @@ namespace MVVMStarterDemoB.Models.Domain.Sale
 
         public int FinalPrice { get; set; }
 
+        public override void SetDefaultValues()
+        {
+        }
+
         public override void SetValuesFromObject(object obj)
         {
-            Sale saleObj = (obj as Sale);
+            Models.Domain.Sale.Sale saleObj = (obj as Models.Domain.Sale.Sale);
             if (saleObj == null)
             {
                 throw new ArgumentException(nameof(SetValuesFromObject));

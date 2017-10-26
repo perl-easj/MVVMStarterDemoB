@@ -96,18 +96,18 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Configuration\App\AppConfig.cs" />
-    <Compile Include="Models\Domain\Car\CarDBO.cs" />
-    <Compile Include="Models\Domain\Car\CarDBOFactory.cs" />
-    <Compile Include="Models\Domain\Car\CarDTOFactory.cs" />
-    <Compile Include="Models\Domain\Customer\CustomerDBO.cs" />
-    <Compile Include="Models\Domain\Customer\CustomerDBOFactory.cs" />
-    <Compile Include="Models\Domain\Customer\CustomerDTOFactory.cs" />
-    <Compile Include="Models\Domain\Employee\EmployeeDBO.cs" />
-    <Compile Include="Models\Domain\Employee\EmployeeDBOFactory.cs" />
-    <Compile Include="Models\Domain\Employee\EmployeeDTOFactory.cs" />
-    <Compile Include="Models\Domain\Sale\SaleDBO.cs" />
-    <Compile Include="Models\Domain\Sale\SaleDBOFactory.cs" />
-    <Compile Include="Models\Domain\Sale\SaleDTOFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Car\CarDTOFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Customer\CustomerDTOFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Employee\EmployeeDTOFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Sale\SaleDTOFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Car\CarViewModel.cs" />
+    <Compile Include="DataTransformations\Domain\Car\CarViewModelFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Customer\CustomerViewModel.cs" />
+    <Compile Include="DataTransformations\Domain\Customer\CustomerViewModelFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Employee\EmployeeViewModel.cs" />
+    <Compile Include="DataTransformations\Domain\Employee\EmployeeViewModelFactory.cs" />
+    <Compile Include="DataTransformations\Domain\Sale\SaleViewModel.cs" />
+    <Compile Include="DataTransformations\Domain\Sale\SaleViewModelFactory.cs" />
     <Compile Include="Views\App\ImageView.xaml.cs">
       <DependentUpon>ImageView.xaml</DependentUpon>
     </Compile>
@@ -118,16 +118,16 @@
     <Compile Include="Models\Base\PersonBase.cs" />
     <Compile Include="Models\Domain\Car\Car.cs" />
     <Compile Include="Models\Domain\Car\CarCatalog.cs" />
-    <Compile Include="Models\Domain\Car\CarDTO.cs" />
+    <Compile Include="DataTransformations\Domain\Car\CarDTO.cs" />
     <Compile Include="Models\Domain\Customer\Customer.cs" />
     <Compile Include="Models\Domain\Customer\CustomerCatalog.cs" />
-    <Compile Include="Models\Domain\Customer\CustomerDTO.cs" />
+    <Compile Include="DataTransformations\Domain\Customer\CustomerDTO.cs" />
     <Compile Include="Models\Domain\Employee\Employee.cs" />
     <Compile Include="Models\Domain\Employee\EmployeeCatalog.cs" />
-    <Compile Include="Models\Domain\Employee\EmployeeDTO.cs" />
+    <Compile Include="DataTransformations\Domain\Employee\EmployeeDTO.cs" />
     <Compile Include="Models\Domain\Sale\Sale.cs" />
     <Compile Include="Models\Domain\Sale\SaleCatalog.cs" />
-    <Compile Include="Models\Domain\Sale\SaleDTO.cs" />
+    <Compile Include="DataTransformations\Domain\Sale\SaleDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModels\App\AppViewModel.cs" />
     <Compile Include="ViewModels\Domain\Car\DetailsViewModel.cs" />
@@ -309,71 +309,80 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="CommandImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsServices\bin\Debug\CommandImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="CommandInterfaces">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\CommandInterfaces\bin\Debug\CommandInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ControlState">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ControlState\bin\Debug\ControlState.dll</HintPath>
-    </Reference>
-    <Reference Include="DBOImplementation">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\DBOImplementation\bin\Debug\DBOImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="DBOInterfaces">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\DBOInterfaces\bin\Debug\DBOInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="DTOImplementation">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\DTOImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="DTOInterfaces">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\DTOInterfaces\bin\Debug\DTOInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsModel">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\ExtensionsModel.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsServices">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsServices\bin\Debug\ExtensionsServices.dll</HintPath>
-    </Reference>
-    <Reference Include="ExtensionsViewModel">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsViewModel\bin\Debug\ExtensionsViewModel.dll</HintPath>
-    </Reference>
-    <Reference Include="Images">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\Images\bin\Debug\Images.dll</HintPath>
-    </Reference>
-    <Reference Include="InMemoryStorageImplementation">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\InMemoryStorageImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="InMemoryStorageInterfaces">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\InMemoryStorageInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="PersistencyImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\PersistencyImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="PersistencyInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\MVVMStarterLibrary\PersistencyInterfaces\bin\Debug\PersistencyInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="UI">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\UI\bin\Debug\UI.dll</HintPath>
-    </Reference>
-    <Reference Include="ViewModelImplementation">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ViewModelImplementation\bin\Debug\ViewModelImplementation.dll</HintPath>
-    </Reference>
-    <Reference Include="ViewModelInterfaces">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ViewModelInterfaces\bin\Debug\ViewModelInterfaces.dll</HintPath>
-    </Reference>
-    <Reference Include="ViewState">
-      <HintPath>..\..\..\..\MVVMStarterLibrary\ViewState\bin\Debug\ViewState.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-  <ItemGroup>
     <Folder Include="Models\Domain\Template\" />
     <Folder Include="ViewModels\Domain\Template\" />
     <Folder Include="Views\Domain\Template\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="CommandImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\CommandImplementation\bin\Debug\CommandImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="CommandInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\CommandInterfaces\bin\Debug\CommandInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ControlState, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ControlState\bin\Debug\ControlState.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTransformationImplementation">
+      <HintPath>..\..\MVVMStarterLibrary\DataTransformationImplementation\bin\Debug\DataTransformationImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="DataTransformationInterfaces">
+      <HintPath>..\..\MVVMStarterLibrary\DataTransformationInterfaces\bin\Debug\DataTransformationInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtensionsModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ExtensionsModel\bin\Debug\ExtensionsModel.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtensionsServices, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ExtensionsServices\bin\Debug\ExtensionsServices.dll</HintPath>
+    </Reference>
+    <Reference Include="ExtensionsViewModel, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ExtensionsViewModel\bin\Debug\ExtensionsViewModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Images, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\Images\bin\Debug\Images.dll</HintPath>
+    </Reference>
+    <Reference Include="InMemoryStorageImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\InMemoryStorageImplementation\bin\Debug\InMemoryStorageImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="InMemoryStorageInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\InMemoryStorage\bin\Debug\InMemoryStorageInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="PersistencyImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\PersistencyImplementation\bin\Debug\PersistencyImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="PersistencyInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\PersistencyInterfaces\bin\Debug\PersistencyInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="UI, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\UI\bin\Debug\UI.dll</HintPath>
+    </Reference>
+    <Reference Include="ViewModelImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ViewModelImplementation\bin\Debug\ViewModelImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="ViewModelInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ViewModelInterfaces\bin\Debug\ViewModelInterfaces.dll</HintPath>
+    </Reference>
+    <Reference Include="ViewState, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\ViewState\bin\Debug\ViewState.dll</HintPath>
+    </Reference>
+    <Reference Include="WebAPI">
+      <HintPath>..\..\MVVMStarterLibrary\WebAPI\bin\Debug\WebAPI.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>

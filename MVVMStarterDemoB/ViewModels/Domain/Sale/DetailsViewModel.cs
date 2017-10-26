@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.ObjectModel;
-using DTO.Interfaces;
+using DataTransformation.Interfaces;
+using MVVMStarterDemoB.DataTransformations.Domain.Sale;
 using MVVMStarterDemoB.Models.App;
-using MVVMStarterDemoB.Models.Domain.Sale;
 using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {
-    public class DetailsViewModel : DetailsViewModelBase<SaleDTO>
+    public class DetailsViewModel : DetailsViewModelBase<SaleViewModel>
     {
         private ObservableCollection<Car.ItemViewModel> _observableCollectionCars;
         private ObservableCollection<Customer.ItemViewModel> _observableCollectionCustomers;
@@ -131,23 +131,23 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Sale
             return null;
         }
 
-        public DetailsViewModel(IDTO obj) : base(obj)
+        public DetailsViewModel(ITransformedData obj) : base(obj)
         {
             _observableCollectionCars = new ObservableCollection<Car.ItemViewModel>();
             _observableCollectionCustomers = new ObservableCollection<Customer.ItemViewModel>();
             _observableCollectionEmployees = new ObservableCollection<Employee.ItemViewModel>();
 
-            foreach (var carData in ObjectProvider.CarCatalog.AllDTO)
+            foreach (var carData in ObjectProvider.CarCatalog.AllTransformed)
             {
                 _observableCollectionCars.Add(new Car.ItemViewModel(carData));
             }
 
-            foreach (var customerData in ObjectProvider.CustomerCatalog.AllDTO)
+            foreach (var customerData in ObjectProvider.CustomerCatalog.AllTransformed)
             {
                 _observableCollectionCustomers.Add(new Customer.ItemViewModel(customerData));
             }
 
-            foreach (var employeeData in ObjectProvider.EmployeeCatalog.AllDTO)
+            foreach (var employeeData in ObjectProvider.EmployeeCatalog.AllTransformed)
             {
                 _observableCollectionEmployees.Add(new Employee.ItemViewModel(employeeData));
             }

@@ -1,17 +1,17 @@
-﻿using DTO.Interfaces;
-using MVVMStarterDemoB.Models.Domain.Sale;
+﻿using DataTransformation.Interfaces;
+using MVVMStarterDemoB.DataTransformations.Domain.Sale;
 using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {
-    public class ViewModelFactory : ViewModelFactoryBase<SaleDTO>
+    public class ViewModelFactory : ViewModelFactoryBase<SaleViewModel>
     {
-        public override IDTOWrapper CreateDetailsViewModel(IDTO obj)
+        public override ITransformedDataWrapper CreateDetailsViewModel(ITransformedData obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override IDTOWrapper CreateItemViewModel(IDTO obj)
+        public override ITransformedDataWrapper CreateItemViewModel(ITransformedData obj)
         {
             return new ItemViewModel(obj);
         }

@@ -1,9 +1,11 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
+using MVVMStarterDemoB.DataTransformations.Domain.Employee;
+using MVVMStarterDemoB.ViewModels.Domain.Employee;
 
 namespace MVVMStarterDemoB.Models.Domain.Employee
 {
-    public class EmployeeCatalog : WebAPIPersistableCatalog<Employee, EmployeeDBO>
+    public class EmployeeCatalog : WebAPIPersistableCatalog<Employee, EmployeeDTO>
     {
         #region Model Singleton implementation
         private static EmployeeCatalog _instance;
@@ -18,7 +20,7 @@ namespace MVVMStarterDemoB.Models.Domain.Employee
             }
         }
 
-        private EmployeeCatalog() : base(AppConfig.ServerURL, "Employees", new EmployeeDTOFactory(), new EmployeeDBOFactory())
+        private EmployeeCatalog() : base(AppConfig.ServerURL, "Employees", new EmployeeViewModelFactory(), new EmployeeDTOFactory())
         {
         }
         #endregion

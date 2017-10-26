@@ -1,12 +1,12 @@
 ﻿using System;
-using DTO.Implementation;
-using DTO.Interfaces;
+using DataTransformation.Implementation;
+using DataTransformation.Interfaces;
 
-namespace MVVMStarterDemoB.Models.Domain.Car
+namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarDTOFactory : DTOFactoryBase<Car, CarDTO>
+    public class CarDTOFactory : TransformedDataFactoryBase<Models.Domain.Car.Car, CarDTO>
     {
-        public override Car CreateT(IDTO obj)
+        public override Models.Domain.Car.Car CreateDomainObject(ITransformedData obj)
         {
             CarDTO dtoObj = (obj as CarDTO);
             if (dtoObj == null)
@@ -14,14 +14,14 @@ namespace MVVMStarterDemoB.Models.Domain.Car
                 throw new ArgumentException(nameof(CarDTOFactory));
             }
 
-            return new Car(
-                dtoObj.Key,
+            return new Models.Domain.Car.Car(
+                dtoObj.Id,
                 dtoObj.ImageKey,
                 dtoObj.LicensePlate,
                 dtoObj.Brand,
                 dtoObj.Model,
                 dtoObj.Year,
-                dtoObj.EngineSizeCm3,
+                dtoObj.EngineSize,
                 dtoObj.HorsePower,
                 dtoObj.Seats,
                 dtoObj.Price);

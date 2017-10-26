@@ -1,9 +1,11 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
+using MVVMStarterDemoB.DataTransformations.Domain.Sale;
+using MVVMStarterDemoB.ViewModels.Domain.Sale;
 
 namespace MVVMStarterDemoB.Models.Domain.Sale
 {
-    public class SaleCatalog : WebAPIPersistableCatalog<Sale, SaleDBO>
+    public class SaleCatalog : WebAPIPersistableCatalog<Sale, SaleDTO>
     {
         #region Model Singleton implementation
         private static SaleCatalog _instance;
@@ -18,15 +20,14 @@ namespace MVVMStarterDemoB.Models.Domain.Sale
             }
         }
 
-        private SaleCatalog() : base(AppConfig.ServerURL, "Sales", new SaleDTOFactory(), new SaleDBOFactory())
+        private SaleCatalog() : base(AppConfig.ServerURL, "Sales", new SaleViewModelFactory(), new SaleDTOFactory())
         {
         }
         #endregion
 
         public int CarsSoldByEmployee(int employeeKey)
         {
-            SaleDTOFactory dtoFactory = new SaleDTOFactory();
-            return AllDTO.FindAll(obj => dtoFactory.CreateT(obj).EmployeeKey == employeeKey).Count;
+            return All.FindAll(obj => obj.EmployeeKey == employeeKey).Count;
         }
     }
 }
