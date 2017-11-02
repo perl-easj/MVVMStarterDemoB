@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using ExtensionsViewModel.Implementation;
+using MVVMStarterDemoB.DataTransformations.Domain.Car;
 using MVVMStarterDemoB.Models.App;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class MasterDetailsViewModel : MasterDetailsViewModelDefault<Models.Domain.Car.Car>
+    public class MasterDetailsViewModel : MasterDetailsViewModelCRUD<Models.Domain.Car.Car, CarViewModel, CarDTO>
     {
         public MasterDetailsViewModel()
             : base(new ViewModelFactory(), ObjectProvider.CarCatalog,

@@ -108,6 +108,8 @@
     <Compile Include="DataTransformations\Domain\Employee\EmployeeViewModelFactory.cs" />
     <Compile Include="DataTransformations\Domain\Sale\SaleViewModel.cs" />
     <Compile Include="DataTransformations\Domain\Sale\SaleViewModelFactory.cs" />
+    <Compile Include="Models\Base\DomainBase.cs" />
+    <Compile Include="Models\Base\DomainBaseWithImage.cs" />
     <Compile Include="Views\App\ImageView.xaml.cs">
       <DependentUpon>ImageView.xaml</DependentUpon>
     </Compile>
@@ -309,11 +311,16 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Domain\Template\" />
-    <Folder Include="ViewModels\Domain\Template\" />
     <Folder Include="Views\Domain\Template\" />
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="CatalogImplementation">
+      <HintPath>..\..\MVVMStarterLibrary\ExtensionsViewModel\bin\Debug\CatalogImplementation.dll</HintPath>
+    </Reference>
+    <Reference Include="CatalogInterfaces, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\MVVMStarterLibrary\CatalogInterfaces\bin\Debug\CatalogInterfaces.dll</HintPath>
+    </Reference>
     <Reference Include="CommandImplementation, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\MVVMStarterLibrary\CommandImplementation\bin\Debug\CommandImplementation.dll</HintPath>

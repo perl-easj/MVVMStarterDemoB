@@ -3,7 +3,7 @@ using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
 {
-    public class SaleViewModel : TransformedDataBase
+    public class SaleViewModel : TransformedWithDefaultBase<Models.Domain.Sale.Sale>
     {
         public int CarKey { get; set; }
 
@@ -26,14 +26,8 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
             FinalPrice = 0;
         }
 
-        public override void SetValuesFromObject(Object obj)
+        public override void SetValuesFromObject(Models.Domain.Sale.Sale saleObj)
         {
-            Models.Domain.Sale.Sale saleObj = (obj as Models.Domain.Sale.Sale);
-            if (saleObj == null)
-            {
-                throw new ArgumentException(nameof(SetValuesFromObject));
-            }
-
             Key = saleObj.Key;
             CarKey = saleObj.CarKey;
             CustomerKey = saleObj.CustomerKey;

@@ -1,11 +1,10 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
 using MVVMStarterDemoB.DataTransformations.Domain.Customer;
-using MVVMStarterDemoB.ViewModels.Domain.Customer;
 
 namespace MVVMStarterDemoB.Models.Domain.Customer
 {
-    public class CustomerCatalog : WebAPIPersistableCatalog<Customer, CustomerDTO>
+    public class CustomerCatalog : WebAPIPersistableCatalog<Customer, CustomerViewModel, CustomerDTO>
     {
         #region Model Singleton implementation
         private static CustomerCatalog _instance;

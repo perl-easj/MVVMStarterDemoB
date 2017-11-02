@@ -3,7 +3,7 @@ using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeDTO : TransformedDataBase
+    public class EmployeeDTO : TransformedBase<Models.Domain.Employee.Employee>
     {
         public int Id { get; set; }
 
@@ -21,18 +21,8 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 
         public int CarsSold { get; set; }
 
-        public override void SetDefaultValues()
+        public override void SetValuesFromObject(Models.Domain.Employee.Employee employeeObj)
         {
-        }
-
-        public override void SetValuesFromObject(object obj)
-        {
-            Models.Domain.Employee.Employee employeeObj = (obj as Models.Domain.Employee.Employee);
-            if (employeeObj == null)
-            {
-                throw new ArgumentException(nameof(SetValuesFromObject));
-            }
-
             Id = employeeObj.Key;
             FullName = employeeObj.FullName;
             Phone = employeeObj.Phone;

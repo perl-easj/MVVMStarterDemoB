@@ -46,20 +46,20 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 
         private CarViewModel GetCar()
         {
-            return ObjectProvider.CarCatalog.ReadTransformed(TypedDataObject.CarKey) as CarViewModel;
+            return ObjectProvider.CarCatalog.Read(DataObject.CarKey) as CarViewModel;
         }
 
         private CustomerViewModel GetCustomer()
         {
-            return ObjectProvider.CustomerCatalog.ReadTransformed(TypedDataObject.CustomerKey) as CustomerViewModel;
+            return ObjectProvider.CustomerCatalog.Read(DataObject.CustomerKey) as CustomerViewModel;
         }
 
         private EmployeeViewModel GetEmployee()
         {
-            return ObjectProvider.EmployeeCatalog.ReadTransformed(TypedDataObject.EmployeeKey) as EmployeeViewModel;
+            return ObjectProvider.EmployeeCatalog.Read(DataObject.EmployeeKey) as EmployeeViewModel;
         }
 
-        public ItemViewModel(ITransformedData obj) : base(obj)
+        public ItemViewModel(SaleViewModel obj) : base(obj)
         {
         }
     }

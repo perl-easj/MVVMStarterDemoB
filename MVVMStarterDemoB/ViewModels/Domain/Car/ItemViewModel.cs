@@ -1,5 +1,4 @@
-﻿using DataTransformation.Interfaces;
-using ExtensionsViewModel.Implementation;
+﻿using ExtensionsViewModel.Implementation;
 using MVVMStarterDemoB.DataTransformations.Domain.Car;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
@@ -8,15 +7,15 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Car
     {
         public override int ImageKey
         {
-            get { return TypedDataObject.ImageKey; }
+            get { return DataObject.ImageKey; }
         }
 
         public override string Description
         {
-            get { return TypedDataObject.LicensePlate; }
+            get { return DataObject.LicensePlate; }
         }
 
-        public ItemViewModel(ITransformedData obj) : base(obj)
+        public ItemViewModel(CarViewModel obj) : base(obj)
         {
         }
     }

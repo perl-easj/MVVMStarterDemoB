@@ -1,19 +1,11 @@
-﻿using System;
-using DataTransformation.Implementation;
-using DataTransformation.Interfaces;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
 {
-    public class CustomerViewModelFactory : TransformedDataFactoryBase<Models.Domain.Customer.Customer, CustomerViewModel>
+    public class CustomerViewModelFactory : FactoryBase<Models.Domain.Customer.Customer, CustomerViewModel>
     {
-        public override Models.Domain.Customer.Customer CreateDomainObject(ITransformedData tObj)
+        public override Models.Domain.Customer.Customer CreateDomainObject(CustomerViewModel vmObj)
         {
-            CustomerViewModel vmObj = (tObj as CustomerViewModel);
-            if (vmObj == null)
-            {
-                throw new ArgumentException(nameof(CustomerViewModelFactory));
-            }
-
             return new Models.Domain.Customer.Customer(
                 vmObj.Key,
                 vmObj.ImageKey,

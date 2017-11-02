@@ -1,9 +1,8 @@
-﻿using System;
-using DataTransformation.Implementation;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
 {
-    public class CustomerViewModel : TransformedDataBase
+    public class CustomerViewModel : TransformedWithDefaultBase<Models.Domain.Customer.Customer>
     {
         public string FullName { get; set; }
 
@@ -40,14 +39,8 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
             ImageKey = NullKey;
         }
 
-        public override void SetValuesFromObject(Object obj)
+        public override void SetValuesFromObject(Models.Domain.Customer.Customer customerObj)
         {
-            Models.Domain.Customer.Customer customerObj = (obj as Models.Domain.Customer.Customer);
-            if (customerObj == null)
-            {
-                throw new ArgumentException(nameof(SetValuesFromObject));
-            }
-
             Key = customerObj.Key;
             FullName = customerObj.FullName;
             Phone = customerObj.Phone;

@@ -1,5 +1,4 @@
 ﻿using System;
-using DataTransformation.Interfaces;
 using ExtensionsViewModel.Implementation;
 using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 
@@ -9,70 +8,70 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Employee
     {
         public string Name
         {
-            get { return TypedDataObject.FullName; }
+            get { return DataObject.FullName; }
             set
             {
-                TypedDataObject.FullName = value;
+                DataObject.FullName = value;
                 OnPropertyChanged();
             }
         }
 
         public string Title
         {
-            get { return TypedDataObject.Title; }
+            get { return DataObject.Title; }
             set
             {
-                TypedDataObject.Title = value;
+                DataObject.Title = value;
                 OnPropertyChanged();
             }
         }
 
         public string Phone
         {
-            get { return TypedDataObject.Phone; }
+            get { return DataObject.Phone; }
             set
             {
-                TypedDataObject.Phone = value;
+                DataObject.Phone = value;
                 OnPropertyChanged();
             }
         }
 
         public string Email
         {
-            get { return TypedDataObject.Email; }
+            get { return DataObject.Email; }
             set
             {
-                TypedDataObject.Email = value;
+                DataObject.Email = value;
                 OnPropertyChanged();
             }
         }
 
         public int CarsSold
         {
-            get { return TypedDataObject.CarsSold; }
+            get { return DataObject.CarsSold; }
         }
 
         public DateTimeOffset Employed
         {
-            get { return TypedDataObject.EmployedDate; }
+            get { return DataObject.EmployedDate; }
             set
             {
-                TypedDataObject.EmployedDate = value.DateTime;
+                DataObject.EmployedDate = value.DateTime;
                 OnPropertyChanged();
             }
         }
 
         public override int ImageKey
         {
-            get { return TypedDataObject.ImageKey; }
+            get { return DataObject.ImageKey; }
             set
             {
-                TypedDataObject.ImageKey = value;
+                DataObject.ImageKey = value;
                 OnPropertyChanged();
             }
         }
 
-        public DetailsViewModel(ITransformedData obj) : base(obj, "Employee")
+        public DetailsViewModel(EmployeeViewModel obj) : base(obj, "Employee")
         {
         }
     }

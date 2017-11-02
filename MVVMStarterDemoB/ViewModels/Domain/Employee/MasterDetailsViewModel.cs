@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using ExtensionsViewModel.Implementation;
+using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 using MVVMStarterDemoB.Models.App;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Employee
 {
-    public class MasterDetailsViewModel : MasterDetailsViewModelDefault<Models.Domain.Employee.Employee>
+    public class MasterDetailsViewModel : MasterDetailsViewModelCRUD<Models.Domain.Employee.Employee, EmployeeViewModel, EmployeeDTO>
     {
         public MasterDetailsViewModel()
             : base(new ViewModelFactory(), ObjectProvider.EmployeeCatalog,

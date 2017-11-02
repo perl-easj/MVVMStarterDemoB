@@ -1,11 +1,10 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
 using MVVMStarterDemoB.DataTransformations.Domain.Car;
-using MVVMStarterDemoB.ViewModels.Domain.Car;
 
 namespace MVVMStarterDemoB.Models.Domain.Car
 {
-    public class CarCatalog : WebAPIPersistableCatalog<Car, CarDTO>
+    public class CarCatalog : WebAPIPersistableCatalog<Car, CarViewModel, CarDTO>
     {
         #region Model Singleton implementation
         private static CarCatalog _instance;

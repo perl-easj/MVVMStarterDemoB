@@ -1,9 +1,8 @@
-﻿using System;
-using DataTransformation.Implementation;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarViewModel : TransformedDataBase
+    public class CarViewModel : TransformedWithDefaultBase<Models.Domain.Car.Car>
     {
         public string LicensePlate { get; set; }
 
@@ -37,14 +36,8 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Car
             ImageKey = NullKey;
         }
 
-        public override void SetValuesFromObject(Object obj)
+        public override void SetValuesFromObject(Models.Domain.Car.Car carObj)
         {
-            Models.Domain.Car.Car carObj = (obj as Models.Domain.Car.Car);
-            if (carObj == null)
-            {
-                throw new ArgumentException(nameof(SetValuesFromObject));
-            }
-
             Key = carObj.Key;
             LicensePlate = carObj.LicensePlate;
             Brand = carObj.Brand;

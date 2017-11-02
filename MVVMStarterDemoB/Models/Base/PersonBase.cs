@@ -1,8 +1,6 @@
-﻿using ExtensionsModel.Implementation;
-
-namespace MVVMStarterDemoB.Models.Base
+﻿namespace MVVMStarterDemoB.Models.Base
 {
-    public abstract class PersonBase : ClassWithImage
+    public abstract class PersonBase<T> : DomainBaseWithImage<T>
     {
         private string _fullName;
         private string _phone;

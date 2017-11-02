@@ -1,8 +1,8 @@
-﻿using ExtensionsModel.Implementation;
+﻿using MVVMStarterDemoB.Models.Base;
 
 namespace MVVMStarterDemoB.Models.Domain.Car
 {
-    public class Car : ClassWithImage
+    public class Car : DomainBaseWithImage<Car>
     {
         public Car(int key, int imageKey, string licensePlate, string brand, string model, int year, int engineSizeCm3,
             int horsePower, int seats, int price)
@@ -16,6 +16,10 @@ namespace MVVMStarterDemoB.Models.Domain.Car
             HorsePower = horsePower;
             Seats = seats;
             Price = price;
+        }
+
+        public Car() : base(NullKey, NullKey)
+        {
         }
 
         public string LicensePlate { get; }

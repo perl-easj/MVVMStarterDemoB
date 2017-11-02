@@ -4,14 +4,14 @@ using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Customer
 {
-    public class ViewModelFactory : ViewModelFactoryBase<CustomerViewModel>
+    public class ViewModelFactory : ViewModelFactoryBase<Models.Domain.Customer.Customer, CustomerViewModel>
     {
-        public override ITransformedDataWrapper CreateDetailsViewModel(ITransformedData obj)
+        public override IDataWrapper<CustomerViewModel> CreateDetailsViewModel(CustomerViewModel obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override ITransformedDataWrapper CreateItemViewModel(ITransformedData obj)
+        public override IDataWrapper<CustomerViewModel> CreateItemViewModel(CustomerViewModel obj)
         {
             return new ItemViewModel(obj);
         }

@@ -1,27 +1,19 @@
-﻿using System;
-using DataTransformation.Implementation;
-using DataTransformation.Interfaces;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeDTOFactory : TransformedDataFactoryBase<Models.Domain.Employee.Employee, EmployeeDTO>
+    public class EmployeeDTOFactory : FactoryBase<Models.Domain.Employee.Employee, EmployeeDTO>
     {
-        public override Models.Domain.Employee.Employee CreateDomainObject(ITransformedData obj)
+        public override Models.Domain.Employee.Employee CreateDomainObject(EmployeeDTO dtoObj)
         {
-            EmployeeDTO dboObj = (obj as EmployeeDTO);
-            if (dboObj == null)
-            {
-                throw new ArgumentException(nameof(EmployeeDTOFactory));
-            }
-
             return new Models.Domain.Employee.Employee(
-                dboObj.Id,
-                dboObj.ImageKey,
-                dboObj.FullName,
-                dboObj.Phone,
-                dboObj.Email,
-                dboObj.Title,
-                dboObj.EmployedDate);
+                dtoObj.Id,
+                dtoObj.ImageKey,
+                dtoObj.FullName,
+                dtoObj.Phone,
+                dtoObj.Email,
+                dtoObj.Title,
+                dtoObj.EmployedDate);
         }
     }
 }

@@ -3,7 +3,7 @@ using MVVMStarterDemoB.Models.Base;
 
 namespace MVVMStarterDemoB.Models.Domain.Employee
 {
-    public class Employee : PersonBase
+    public class Employee : PersonBase<Employee>
     {
         private static Sale.SaleCatalog _saleCatalog;
 
@@ -13,6 +13,10 @@ namespace MVVMStarterDemoB.Models.Domain.Employee
             Title = title;
             EmployedDate = employedDate;
             _saleCatalog = Sale.SaleCatalog.Instance;
+        }
+
+        public Employee() : base(NullKey, NullKey, "", "", "")
+        {
         }
 
         public string Title { get; set; }

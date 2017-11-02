@@ -1,31 +1,23 @@
-﻿using System;
-using DataTransformation.Implementation;
-using DataTransformation.Interfaces;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
 {
-    public class CustomerDTOFactory : TransformedDataFactoryBase<Models.Domain.Customer.Customer, CustomerDTO>
+    public class CustomerDTOFactory : FactoryBase<Models.Domain.Customer.Customer, CustomerDTO>
     {
-        public override Models.Domain.Customer.Customer CreateDomainObject(ITransformedData obj)
+        public override Models.Domain.Customer.Customer CreateDomainObject(CustomerDTO dtoObj)
         {
-            CustomerDTO dboObj = (obj as CustomerDTO);
-            if (dboObj == null)
-            {
-                throw new ArgumentException(nameof(CustomerDTOFactory));
-            }
-
             return new Models.Domain.Customer.Customer(
-                dboObj.Id,
-                dboObj.ImageKey,
-                dboObj.FullName,
-                dboObj.Phone,
-                dboObj.Email,
-                dboObj.Address,
-                dboObj.ZipCode,
-                dboObj.City,
-                dboObj.MinPrice,
-                dboObj.MaxPrice,
-                dboObj.NewsLetter);
+                dtoObj.Id,
+                dtoObj.ImageKey,
+                dtoObj.FullName,
+                dtoObj.Phone,
+                dtoObj.Email,
+                dtoObj.Address,
+                dtoObj.ZipCode,
+                dtoObj.City,
+                dtoObj.MinPrice,
+                dtoObj.MaxPrice,
+                dtoObj.NewsLetter);
         }
     }
 }

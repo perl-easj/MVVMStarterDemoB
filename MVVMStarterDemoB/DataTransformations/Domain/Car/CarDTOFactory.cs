@@ -1,19 +1,11 @@
-﻿using System;
-using DataTransformation.Implementation;
-using DataTransformation.Interfaces;
+﻿using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarDTOFactory : TransformedDataFactoryBase<Models.Domain.Car.Car, CarDTO>
+    public class CarDTOFactory : FactoryBase<Models.Domain.Car.Car, CarDTO>
     {
-        public override Models.Domain.Car.Car CreateDomainObject(ITransformedData obj)
+        public override Models.Domain.Car.Car CreateDomainObject(CarDTO dtoObj)
         {
-            CarDTO dtoObj = (obj as CarDTO);
-            if (dtoObj == null)
-            {
-                throw new ArgumentException(nameof(CarDTOFactory));
-            }
-
             return new Models.Domain.Car.Car(
                 dtoObj.Id,
                 dtoObj.ImageKey,

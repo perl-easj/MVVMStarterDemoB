@@ -1,11 +1,10 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
 using MVVMStarterDemoB.DataTransformations.Domain.Sale;
-using MVVMStarterDemoB.ViewModels.Domain.Sale;
 
 namespace MVVMStarterDemoB.Models.Domain.Sale
 {
-    public class SaleCatalog : WebAPIPersistableCatalog<Sale, SaleDTO>
+    public class SaleCatalog : WebAPIPersistableCatalog<Sale, SaleViewModel, SaleDTO>
     {
         #region Model Singleton implementation
         private static SaleCatalog _instance;

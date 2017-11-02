@@ -1,9 +1,9 @@
 ﻿using System;
-using InMemoryStorage.Implementation;
+using MVVMStarterDemoB.Models.Base;
 
 namespace MVVMStarterDemoB.Models.Domain.Sale
 {
-    public class Sale : StorableBase
+    public class Sale : DomainBase<Sale>
     {
         public Sale(int key, int carKey, int customerKey, int employeeKey, DateTimeOffset salesDate, int finalPrice)
             : base(key)
@@ -14,6 +14,10 @@ namespace MVVMStarterDemoB.Models.Domain.Sale
 
             SalesDate = salesDate;
             FinalPrice = finalPrice;
+        }
+
+        public Sale() : base(NullKey)
+        {
         }
 
         public int CarKey { get; set; }

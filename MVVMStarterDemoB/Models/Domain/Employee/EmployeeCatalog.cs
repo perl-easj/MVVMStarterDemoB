@@ -1,11 +1,10 @@
 ﻿using ExtensionsModel.Implementation;
 using MVVMStarterDemoB.Configuration.App;
 using MVVMStarterDemoB.DataTransformations.Domain.Employee;
-using MVVMStarterDemoB.ViewModels.Domain.Employee;
 
 namespace MVVMStarterDemoB.Models.Domain.Employee
 {
-    public class EmployeeCatalog : WebAPIPersistableCatalog<Employee, EmployeeDTO>
+    public class EmployeeCatalog : WebAPIPersistableCatalog<Employee, EmployeeViewModel, EmployeeDTO>
     {
         #region Model Singleton implementation
         private static EmployeeCatalog _instance;

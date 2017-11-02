@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.Models.Domain.Customer
 {
-    public class Customer : PersonBase
+    public class Customer : PersonBase<Customer>
     {
         public Customer(int key, int imageKey, string fullName, string phone, string email, string address, int zipCode, string city, int minPrice, int maxPrice, bool newsLetter)
             : base(key, imageKey, fullName, phone, email)
@@ -13,6 +13,10 @@ namespace MVVMStarterDemoB.Models.Domain.Customer
             MinPrice = minPrice;
             MaxPrice = maxPrice;
             NewsLetter = newsLetter;
+        }
+
+        public Customer() : base(NullKey, NullKey, "", "", "")
+        {
         }
 
         public string Address { get; set; }

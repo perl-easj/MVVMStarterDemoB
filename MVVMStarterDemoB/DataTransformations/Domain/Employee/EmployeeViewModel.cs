@@ -4,7 +4,7 @@ using MVVMStarterDemoB.Models.App;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeViewModel : TransformedDataBase
+    public class EmployeeViewModel : TransformedWithDefaultBase<Models.Domain.Employee.Employee>
     {
         public string FullName { get; set; }
 
@@ -34,14 +34,8 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
             ImageKey = NullKey;
         }
 
-        public override void SetValuesFromObject(Object obj)
+        public override void SetValuesFromObject(Models.Domain.Employee.Employee employeeObj)
         {
-            Models.Domain.Employee.Employee employeeObj = (obj as Models.Domain.Employee.Employee);
-            if (employeeObj == null)
-            {
-                throw new ArgumentException(nameof(SetValuesFromObject));
-            }
-
             Key = employeeObj.Key;
             FullName = employeeObj.FullName;
             Phone = employeeObj.Phone;

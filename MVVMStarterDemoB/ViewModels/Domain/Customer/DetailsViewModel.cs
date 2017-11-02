@@ -1,5 +1,4 @@
-﻿using DataTransformation.Interfaces;
-using ExtensionsViewModel.Implementation;
+﻿using ExtensionsViewModel.Implementation;
 using MVVMStarterDemoB.DataTransformations.Domain.Customer;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Customer
@@ -8,105 +7,105 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Customer
     {
         public string Name
         {
-            get { return TypedDataObject.FullName; }
+            get { return DataObject.FullName; }
             set
             {
-                TypedDataObject.FullName = value;
+                DataObject.FullName = value;
                 OnPropertyChanged();
             }
         }
 
         public string Address
         {
-            get { return TypedDataObject.Address; }
+            get { return DataObject.Address; }
             set
             {
-                TypedDataObject.Address = value;
+                DataObject.Address = value;
                 OnPropertyChanged();
             }
         }
 
         public int ZipCode
         {
-            get { return TypedDataObject.ZipCode; }
+            get { return DataObject.ZipCode; }
             set
             {
-                TypedDataObject.ZipCode = value;
+                DataObject.ZipCode = value;
                 OnPropertyChanged();
             }
         }
 
         public string City
         {
-            get { return TypedDataObject.City; }
+            get { return DataObject.City; }
             set
             {
-                TypedDataObject.City = value;
+                DataObject.City = value;
                 OnPropertyChanged();
             }
         }
 
         public string Phone
         {
-            get { return TypedDataObject.Phone; }
+            get { return DataObject.Phone; }
             set
             {
-                TypedDataObject.Phone = value;
+                DataObject.Phone = value;
                 OnPropertyChanged();
             }
         }
 
         public string Email
         {
-            get { return TypedDataObject.Email; }
+            get { return DataObject.Email; }
             set
             {
-                TypedDataObject.Email = value;
+                DataObject.Email = value;
                 OnPropertyChanged();
             }
         }
 
         public int MinPrice
         {
-            get { return TypedDataObject.MinPrice; }
+            get { return DataObject.MinPrice; }
             set
             {
-                TypedDataObject.MinPrice = value;
+                DataObject.MinPrice = value;
                 OnPropertyChanged();
             }
         }
 
         public int MaxPrice
         {
-            get { return TypedDataObject.MaxPrice; }
+            get { return DataObject.MaxPrice; }
             set
             {
-                TypedDataObject.MaxPrice = value;
+                DataObject.MaxPrice = value;
                 OnPropertyChanged();
             }
         }
 
         public bool NewsLetter
         {
-            get { return TypedDataObject.NewsLetter; }
+            get { return DataObject.NewsLetter; }
             set
             {
-                TypedDataObject.NewsLetter = value;
+                DataObject.NewsLetter = value;
                 OnPropertyChanged();
             }
         }
 
         public override int ImageKey
         {
-            get { return TypedDataObject.ImageKey; }
+            get { return DataObject.ImageKey; }
             set
             {
-                TypedDataObject.ImageKey = value;
+                DataObject.ImageKey = value;
                 OnPropertyChanged();
             }
         }
 
-        public DetailsViewModel(ITransformedData obj) : base(obj, "Customer")
+        public DetailsViewModel(CustomerViewModel obj) : base(obj, "Customer")
         {
         }
     }
