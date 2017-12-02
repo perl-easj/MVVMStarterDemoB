@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarDTO : TransformedBase<Models.Domain.Car.Car>
+    public class CarDTO : CopyableBase
     {
         public int Id { get; set; }
 
@@ -23,19 +23,5 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Car
         public int Price { get; set; }
 
         public int ImageKey { get; set; }
-
-        public override void SetValuesFromObject(Models.Domain.Car.Car carObj)
-        {
-            Id = carObj.Key;
-            Brand = carObj.Brand;
-            Model = carObj.Model;
-            LicensePlate = carObj.LicensePlate;
-            Year = carObj.Year;
-            Seats = carObj.Seats;
-            Price = carObj.Price;
-            EngineSize = carObj.EngineSizeCm3;
-            HorsePower = carObj.HorsePower;
-            ImageKey = carObj.ImageKey;
-        }
     }
 }

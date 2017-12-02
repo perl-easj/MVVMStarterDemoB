@@ -5,7 +5,7 @@ using MVVMStarterDemoB.Models.App;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Customer
 {
-    public class MasterDetailsViewModel : MasterDetailsViewModelCRUD<Models.Domain.Customer.Customer, CustomerViewModel, CustomerDTO>
+    public class MasterDetailsViewModel : MasterDetailsViewModelCRUD<CustomerVMO>
     {
         public MasterDetailsViewModel()
             : base(new ViewModelFactory(), ObjectProvider.CustomerCatalog,

@@ -4,7 +4,7 @@ using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Employee
 {
-    public class DetailsViewModel : DetailsViewModelWithSelectableImage<EmployeeViewModel>
+    public class DetailsViewModel : DetailsViewModelWithSelectableImage<EmployeeVMO>
     {
         public string Name
         {
@@ -71,7 +71,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Employee
             }
         }
 
-        public DetailsViewModel(EmployeeViewModel obj) : base(obj, "Employee")
+        public DetailsViewModel(EmployeeVMO obj) : base(obj, "Employee")
         {
         }
     }

@@ -4,14 +4,14 @@ using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Employee
 {
-    public class ViewModelFactory : ViewModelFactoryBase<Models.Domain.Employee.Employee, EmployeeViewModel>
+    public class ViewModelFactory : ViewModelFactoryBase<EmployeeVMO>
     {
-        public override IDataWrapper<EmployeeViewModel> CreateDetailsViewModel(EmployeeViewModel obj)
+        public override IDataWrapper<EmployeeVMO> CreateDetailsViewModel(EmployeeVMO obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override IDataWrapper<EmployeeViewModel> CreateItemViewModel(EmployeeViewModel obj)
+        public override IDataWrapper<EmployeeVMO> CreateItemViewModel(EmployeeVMO obj)
         {
             return new ItemViewModel(obj);
         }

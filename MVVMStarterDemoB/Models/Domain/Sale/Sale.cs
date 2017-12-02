@@ -1,9 +1,9 @@
 ﻿using System;
-using MVVMStarterDemoB.Models.Base;
+using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.Models.Domain.Sale
 {
-    public class Sale : DomainBase<Sale>
+    public class Sale : CopyableBase
     {
         public Sale(int key, int carKey, int customerKey, int employeeKey, DateTimeOffset salesDate, int finalPrice)
             : base(key)

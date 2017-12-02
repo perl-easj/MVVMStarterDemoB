@@ -3,7 +3,7 @@ using MVVMStarterDemoB.DataTransformations.Domain.Customer;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Customer
 {
-    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CustomerViewModel>
+    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CustomerVMO>
     {
         public string Name
         {
@@ -105,7 +105,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Customer
             }
         }
 
-        public DetailsViewModel(CustomerViewModel obj) : base(obj, "Customer")
+        public DetailsViewModel(CustomerVMO obj) : base(obj, "Customer")
         {
         }
     }

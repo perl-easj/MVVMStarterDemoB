@@ -3,7 +3,7 @@ using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeDTO : TransformedBase<Models.Domain.Employee.Employee>
+    public class EmployeeDTO : CopyableBase
     {
         public int Id { get; set; }
 
@@ -20,17 +20,5 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
         public int ImageKey { get; set; }
 
         public int CarsSold { get; set; }
-
-        public override void SetValuesFromObject(Models.Domain.Employee.Employee employeeObj)
-        {
-            Id = employeeObj.Key;
-            FullName = employeeObj.FullName;
-            Phone = employeeObj.Phone;
-            Email = employeeObj.Email;
-            Title = employeeObj.Title;
-            EmployedDate = employeeObj.EmployedDate.DateTime;
-            ImageKey = employeeObj.ImageKey;
-            CarsSold = employeeObj.CarsSold;
-        }
     }
 }

@@ -3,7 +3,7 @@ using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Employee
 {
-    public class ItemViewModel : ItemViewModelWithImage<EmployeeViewModel>
+    public class ItemViewModel : ItemViewModelWithImage<EmployeeVMO>
     {
         public override int ImageKey
         {
@@ -15,7 +15,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Employee
             get { return DataObject.FullName; }
         }
 
-        public ItemViewModel(EmployeeViewModel obj) : base(obj)
+        public ItemViewModel(EmployeeVMO obj) : base(obj)
         {
         }
     }

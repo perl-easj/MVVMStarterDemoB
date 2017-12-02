@@ -10,7 +10,7 @@ namespace MVVMStarterDemoB.Configuration.App
 {
     public class AppConfig
     {
-        public static string ServerURL = "http://azurecarretaildbwebservice.azurewebsites.net";
+        public static string ServerURL = "http://localhost:1030/";
 
         public static void Setup()
         {

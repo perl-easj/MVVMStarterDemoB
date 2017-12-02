@@ -4,14 +4,14 @@ using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class ViewModelFactory : ViewModelFactoryBase<Models.Domain.Car.Car, CarViewModel>
+    public class ViewModelFactory : ViewModelFactoryBase<CarVMO>
     {
-        public override IDataWrapper<CarViewModel> CreateDetailsViewModel(CarViewModel obj)
+        public override IDataWrapper<CarVMO> CreateDetailsViewModel(CarVMO obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override IDataWrapper<CarViewModel> CreateItemViewModel(CarViewModel obj)
+        public override IDataWrapper<CarVMO> CreateItemViewModel(CarVMO obj)
         {
             return new ItemViewModel(obj);
         }

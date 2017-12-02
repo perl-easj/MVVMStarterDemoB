@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.Models.Domain.Car
 {
-    public class Car : DomainBaseWithImage<Car>
+    public class Car : DomainBaseWithImage
     {
         public Car(int key, int imageKey, string licensePlate, string brand, string model, int year, int engineSizeCm3,
             int horsePower, int seats, int price)

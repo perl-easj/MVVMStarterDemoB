@@ -6,7 +6,7 @@ using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {
-    public class DetailsViewModel : DetailsViewModelBase<SaleViewModel>
+    public class DetailsViewModel : DetailsViewModelBase<SaleVMO>
     {
         private ObservableCollection<Car.ItemViewModel> _observableCollectionCars;
         private ObservableCollection<Customer.ItemViewModel> _observableCollectionCustomers;
@@ -130,7 +130,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Sale
             return null;
         }
 
-        public DetailsViewModel(SaleViewModel obj) : base(obj)
+        public DetailsViewModel(SaleVMO obj) : base(obj)
         {
             _observableCollectionCars = new ObservableCollection<Car.ItemViewModel>();
             _observableCollectionCustomers = new ObservableCollection<Customer.ItemViewModel>();

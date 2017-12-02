@@ -3,7 +3,7 @@ using DataTransformation.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
 {
-    public class SaleDTO : TransformedBase<Models.Domain.Sale.Sale>
+    public class SaleDTO : CopyableBase
     {
         public int Id { get; set; }
 
@@ -16,16 +16,5 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
         public DateTime SalesDate { get; set; }
 
         public int FinalPrice { get; set; }
-
-        public override void SetValuesFromObject(Models.Domain.Sale.Sale saleObj)
-        {
-            Id = saleObj.Key;
-            CarKey = saleObj.CarKey;
-            CustomerKey = saleObj.CustomerKey;
-            EmployeeKey = saleObj.EmployeeKey;
-
-            SalesDate = saleObj.SalesDate.DateTime;
-            FinalPrice = saleObj.FinalPrice;
-        }
     }
 }

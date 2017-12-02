@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
 {
-    public class CustomerViewModel : TransformedWithDefaultBase<Models.Domain.Customer.Customer>
+    public class CustomerVMO : CopyableWithDefaultValuesBase
     {
         public string FullName { get; set; }
 
@@ -37,21 +37,6 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
             MaxPrice = 0;
             NewsLetter = false;
             ImageKey = NullKey;
-        }
-
-        public override void SetValuesFromObject(Models.Domain.Customer.Customer customerObj)
-        {
-            Key = customerObj.Key;
-            FullName = customerObj.FullName;
-            Phone = customerObj.Phone;
-            Email = customerObj.Email;
-            Address = customerObj.Address;
-            ZipCode = customerObj.ZipCode;
-            City = customerObj.City;
-            MinPrice = customerObj.MinPrice;
-            MaxPrice = customerObj.MaxPrice;
-            NewsLetter = customerObj.NewsLetter;
-            ImageKey = customerObj.ImageKey;
         }
     }
 }

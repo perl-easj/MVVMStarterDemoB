@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
 {
-    public class CustomerDTO : TransformedBase<Models.Domain.Customer.Customer>
+    public class CustomerDTO : CopyableBase
     {
         public int Id { get; set; }
 
@@ -25,20 +25,5 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Customer
         public int MaxPrice { get; set; }
 
         public bool NewsLetter { get; set; }
-
-        public override void SetValuesFromObject(Models.Domain.Customer.Customer customerObj)
-        {
-            Id = customerObj.Key;
-            FullName = customerObj.FullName;
-            Phone = customerObj.Phone;
-            Email = customerObj.Email;
-            Address = customerObj.Address;
-            ZipCode = customerObj.ZipCode;
-            City = customerObj.City;
-            MinPrice = customerObj.MinPrice;
-            MaxPrice = customerObj.MaxPrice;
-            NewsLetter = customerObj.NewsLetter;
-            ImageKey = customerObj.ImageKey;
-        }
     }
 }

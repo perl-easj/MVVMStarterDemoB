@@ -3,7 +3,7 @@ using MVVMStarterDemoB.DataTransformations.Domain.Car;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Car
 {
-    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CarViewModel>
+    public class DetailsViewModel : DetailsViewModelWithSelectableImage<CarVMO>
     {
         public string Plate
         {
@@ -95,7 +95,7 @@ namespace MVVMStarterDemoB.ViewModels.Domain.Car
             }
         }
 
-        public DetailsViewModel(CarViewModel obj) : base(obj, "Car")
+        public DetailsViewModel(CarVMO obj) : base(obj, "Car")
         {
         }
     }

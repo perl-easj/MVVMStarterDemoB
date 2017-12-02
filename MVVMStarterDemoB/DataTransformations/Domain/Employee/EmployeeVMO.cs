@@ -4,7 +4,7 @@ using MVVMStarterDemoB.Models.App;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
 {
-    public class EmployeeViewModel : TransformedWithDefaultBase<Models.Domain.Employee.Employee>
+    public class EmployeeVMO : CopyableWithDefaultValuesBase
     {
         public string FullName { get; set; }
 
@@ -32,17 +32,6 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Employee
             Title = "(not set)";
             EmployedDate = DateTimeOffset.Now;
             ImageKey = NullKey;
-        }
-
-        public override void SetValuesFromObject(Models.Domain.Employee.Employee employeeObj)
-        {
-            Key = employeeObj.Key;
-            FullName = employeeObj.FullName;
-            Phone = employeeObj.Phone;
-            Email = employeeObj.Email;
-            Title = employeeObj.Title;
-            EmployedDate = employeeObj.EmployedDate;
-            ImageKey = employeeObj.ImageKey;
         }
     }
 }

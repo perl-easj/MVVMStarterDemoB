@@ -4,14 +4,14 @@ using ViewModel.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {
-    public class ViewModelFactory : ViewModelFactoryBase<Models.Domain.Sale.Sale, SaleViewModel>
+    public class ViewModelFactory : ViewModelFactoryBase<SaleVMO>
     {
-        public override IDataWrapper<SaleViewModel> CreateDetailsViewModel(SaleViewModel obj)
+        public override IDataWrapper<SaleVMO> CreateDetailsViewModel(SaleVMO obj)
         {
             return new DetailsViewModel(obj);
         }
 
-        public override IDataWrapper<SaleViewModel> CreateItemViewModel(SaleViewModel obj)
+        public override IDataWrapper<SaleVMO> CreateItemViewModel(SaleVMO obj)
         {
             return new ItemViewModel(obj);
         }

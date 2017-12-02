@@ -2,7 +2,7 @@
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Car
 {
-    public class CarViewModel : TransformedWithDefaultBase<Models.Domain.Car.Car>
+    public class CarVMO : CopyableWithDefaultValuesBase
     {
         public string LicensePlate { get; set; }
 
@@ -34,20 +34,6 @@ namespace MVVMStarterDemoB.DataTransformations.Domain.Car
             Seats = 0;
             Price = 0;
             ImageKey = NullKey;
-        }
-
-        public override void SetValuesFromObject(Models.Domain.Car.Car carObj)
-        {
-            Key = carObj.Key;
-            LicensePlate = carObj.LicensePlate;
-            Brand = carObj.Brand;
-            Model = carObj.Model;
-            Year = carObj.Year;
-            EngineSizeCm3 = carObj.EngineSizeCm3;
-            HorsePower = carObj.HorsePower;
-            Seats = carObj.Seats;
-            Price = carObj.Price;
-            ImageKey = carObj.ImageKey;
         }
     }
 }
