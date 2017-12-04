@@ -1,14 +1,10 @@
-﻿using DataTransformation.Interfaces;
-using ExtensionsViewModel.Implementation;
+﻿using ExtensionsViewModel.Implementation;
 using InMemoryStorage.Implementation;
 using MVVMStarterDemoB.DataTransformations.Domain.Car;
 using MVVMStarterDemoB.DataTransformations.Domain.Customer;
 using MVVMStarterDemoB.DataTransformations.Domain.Employee;
 using MVVMStarterDemoB.DataTransformations.Domain.Sale;
 using MVVMStarterDemoB.Models.App;
-using MVVMStarterDemoB.ViewModels.Domain.Car;
-using MVVMStarterDemoB.ViewModels.Domain.Customer;
-using MVVMStarterDemoB.ViewModels.Domain.Employee;
 
 namespace MVVMStarterDemoB.ViewModels.Domain.Sale
 {

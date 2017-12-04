@@ -1,5 +1,5 @@
 ﻿using System;
-using DataTransformation.Implementation;
+using InMemoryStorage.Implementation;
 
 namespace MVVMStarterDemoB.DataTransformations.Domain.Sale
 {
