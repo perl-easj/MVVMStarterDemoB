@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
-using System.Reflection;
-using ExtensionsServices.Implementation;
-using Images.Implementation;
-using Images.Interfaces;
-using Images.Types;
-using MVVMStarterDemoB.Models.App;
+using Windows.UI.Xaml.Controls;
+using AddOns.Images.Implementation;
+using AddOns.Images.Interfaces;
+using Extensions.AddOns.Implementation;
+using MVVMStarterDemoB.ViewModels.App;
+using MVVMStarterDemoB.Views.App;
 
 namespace MVVMStarterDemoB.Configuration.App
 {
@@ -12,29 +12,18 @@ namespace MVVMStarterDemoB.Configuration.App
     {
         public static string ServerURL = "http://localhost:1030/";
 
-        public static void Setup()
+        public static void Setup(Page mainPage, Frame appFrame)
         {
-            SetupCatalogs();
             SetupAppImages("..\\..\\..\\Assets\\App\\");
             SetupDomainImages("..\\..\\..\\Assets\\Images\\");
-        }
 
-        private static void SetupCatalogs()
-        {
-            foreach (var prop in typeof(ObjectProvider).GetProperties())
-            {
-                prop.GetMethod.Invoke(null, null);
-            }
+            appFrame.Navigate(typeof(FileView));
+            ((AppViewModel)mainPage.DataContext).SetAppFrame(appFrame);
         }
 
         private static void SetupAppImages(string prefix)
         {
-            ServiceProvider.Images.SetAppImageSource(AppImageType.Load, prefix + "Load.png");
-            ServiceProvider.Images.SetAppImageSource(AppImageType.Save, prefix + "Save.png");
-            ServiceProvider.Images.SetAppImageSource(AppImageType.Quit, prefix + "Quit.png");
-            ServiceProvider.Images.SetAppImageSource(AppImageType.Login, prefix + "Login.png");
-            ServiceProvider.Images.SetAppImageSource(AppImageType.Image, prefix + "Image.png");
-            ServiceProvider.Images.SetAppImageSource(AppImageType.NotFound, prefix + "NotSet.jpg.jpg");
+            ServiceProvider.Images.SetAppImageSource(AppImageType.NotFound, prefix + "NotSet.jpg");
             ServiceProvider.Images.SetAppImageSource(AppImageType.Logo, prefix + "Logo120x60.jpg");
         }
 

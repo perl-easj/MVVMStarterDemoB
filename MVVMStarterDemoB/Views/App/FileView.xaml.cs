@@ -1,19 +1,17 @@
 ﻿using Windows.UI.Xaml.Controls;
-using MVVMStarterDemoB.Configuration.App;
 
-// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x409
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace MVVMStarterDemoB.Views.App
 {
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
-    public sealed partial class MainPage : Page
+    public sealed partial class FileView : Page
     {
-        public MainPage()
+        public FileView()
         {
             this.InitializeComponent();
-            AppConfig.Setup(this, AppFrame);
         }
     }
 }

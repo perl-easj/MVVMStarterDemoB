@@ -1,47 +1,65 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using ExtensionsServices.Implementation;
-using Images.Types;
+﻿using System;
+using Windows.UI.Xaml.Controls;
+using Commands.Implementation;
+using MVVMStarterDemoB.Views.Domain;
+using ViewModel.App.Implementation;
 
 namespace MVVMStarterDemoB.ViewModels.App
 {
-    public class AppViewModel : INotifyPropertyChanged
+    public class AppViewModel : AppViewModelBase
     {
-        public string LoadImageSource
+        private NavigationViewItem _selectedMenuItem;
+
+        public AppViewModel()
         {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Load); }
+            _selectedMenuItem = null;
         }
 
-        public string SaveImageSource
+        public NavigationViewItem SelectedMenuItem
         {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Save); }
+            get { return _selectedMenuItem; }
+            set
+            {
+                _selectedMenuItem = value;
+                if (_selectedMenuItem == null) return;
+
+                string tag = _selectedMenuItem.Tag.ToString();
+
+                if (!NavigationCommands.ContainsKey(tag))
+                {
+                    throw new ArgumentException($"Menu entry {tag} has no matching navigation command");
+                }
+
+                NavigationCommands[tag].Execute(null);
+            }
         }
 
-        public string QuitImageSource
+        public override void AddCommands()
         {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Quit); }
-        }
+            NavigationCommands.Add("File", new RelayCommand(() =>
+            {
+                AppFrame.Navigate(typeof(Views.App.FileView));
+            }));
 
-        public string LoginImageSource
-        {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Login); }
-        }
+            NavigationCommands.Add("OpenCarView", new RelayCommand(() =>
+            {
+                AppFrame.Navigate(typeof(CarView));
+            }));
 
-        public string ImageImageSource
-        {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Image); }
-        }
+            NavigationCommands.Add("OpenCustomerView", new RelayCommand(() =>
+            {
+                AppFrame.Navigate(typeof(CustomerView));
+            }));
 
-        public string LogoImageSource
-        {
-            get { return ServiceProvider.Images.GetAppImageSource(AppImageType.Logo); }
-        }
+            NavigationCommands.Add("OpenEmployeeView", new RelayCommand(() =>
+            {
+                AppFrame.Navigate(typeof(EmployeeView));
+            }));
 
-        public event PropertyChangedEventHandler PropertyChanged;
-
-        protected virtual void OnPropertyChanged([CallerMemberName] string propertyName = null)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            NavigationCommands.Add("OpenSaleView", new RelayCommand(() =>
+            {
+                AppFrame.Navigate(typeof(SaleView));
+            }));
         }
     }
 }

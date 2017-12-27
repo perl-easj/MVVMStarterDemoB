@@ -11,81 +11,36 @@
         <vm:AppViewModel/>
     </Page.DataContext>
 
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto" />
-            <RowDefinition Height="*" />
-        </Grid.RowDefinitions>
+    <Page.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="../App/AppResources.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Page.Resources>
 
-        <RelativePanel Grid.Row="0" >
-            <StackPanel Orientation="Horizontal">
-                <Button Name="HamburgerButton" 
-                        RelativePanel.AlignLeftWithPanel="True"
-                        FontFamily="Segoe MDL2 Assets"
-                        FontSize="40" 
-                        Content="&#xE700;" 
-                        Click="HamburgerButton_Click" />
-                <Image Width="100" Height="50" Margin="10,0,0,0"
-                       Source="{Binding LogoImageSource}"/>
-            </StackPanel>
-        </RelativePanel>
+    <NavigationView Header="Car Retail"
+                    Background="{ThemeResource SystemControlAcrylicWindowBrush}"
+                    OpenPaneLength="150"
+                    CompactModeThresholdWidth="1280"
+                    SelectedItem ="{Binding SelectedMenuItem, Mode=TwoWay}"
+                    ExpandedModeThresholdWidth="3840">
+        <NavigationView.MenuItems>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Globe" Content="File" Tag="File"/>
+            <NavigationViewItemSeparator/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Memo" Content="Cars" Tag="OpenCarView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="People" Content="Customers" Tag="OpenCustomerView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="OtherUser" Content="Employees" Tag="OpenEmployeeView"/>
+            <NavigationViewItem Style="{StaticResource NavigationViewItemStyle}" Icon="Shop" Content="Sales" Tag="OpenSaleView"/>
+        </NavigationView.MenuItems>
 
-        <SplitView Grid.Row="1" 
-                   Name="AppSplitView"
-                   DisplayMode="CompactInline" 
-                   OpenPaneLength="256"
-                   CompactPaneLength="60">
-            <SplitView.Pane>
-                <ListBox Name="ViewSelection" SelectionMode="Single" SelectionChanged="ListBox_SelectionChanged">
-                    <ListBoxItem Name="Load">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="{Binding LoadImageSource}"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Load</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="Quit">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="{Binding QuitImageSource}"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Quit</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="CarView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/Car/Car.jpg"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Cars</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="CustomerView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/Customer/Customer.png"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Customers</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="EmployeeView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/Employee/Employee.jpg"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Employees</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="SaleView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="ms-appx:///Assets/Domain/Sale/Sale.png"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Sales</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                    <ListBoxItem Name="ImageView">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Width="40" Height="40" Source="{Binding ImageImageSource}"/>
-                            <TextBlock FontSize="24" Margin="20,0,0,0">Images</TextBlock>
-                        </StackPanel>
-                    </ListBoxItem>
-                </ListBox>
-            </SplitView.Pane>
+        <Frame x:Name="AppFrame">
+            <Frame.ContentTransitions>
+                <TransitionCollection>
+                    <NavigationThemeTransition/>
+                </TransitionCollection>
+            </Frame.ContentTransitions>
+        </Frame>
+    </NavigationView>
 
-            <SplitView.Content>
-                <Frame Name="AppFrame"></Frame>
-            </SplitView.Content>
-
-        </SplitView>
-    </Grid>
 </Page>
