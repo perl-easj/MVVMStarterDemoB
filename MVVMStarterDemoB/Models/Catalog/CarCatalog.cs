@@ -33,9 +33,9 @@ namespace MVVMStarterDemoB.Models.Catalog
             {
                 Key = obj.Key,
                 ImageKey = obj.ImageKey,
-                LicensePlate = obj.LicensePlate,
-                Brand = obj.Brand,
-                Model = obj.Model,
+                LicensePlate = obj.LicensePlate.TrimEnd(' '),
+                Brand = obj.Brand.TrimEnd(' '),
+                Model = obj.Model.TrimEnd(' '),
                 Year = obj.Year,
                 EngineSize = obj.EngineSize,
                 HorsePower = obj.HorsePower,

@@ -30,10 +30,10 @@ namespace MVVMStarterDemoB.Models.Catalog
             {
                 Key = obj.Key,
                 ImageKey = obj.ImageKey,
-                FullName = obj.FullName,
-                Phone = obj.Phone,
-                Email = obj.Email,
-                Title = obj.Title,
+                FullName = obj.FullName.TrimEnd(' '),
+                Phone = obj.Phone.TrimEnd(' '),
+                Email = obj.Email.TrimEnd(' '),
+                Title = obj.Title.TrimEnd(' '),
                 EmployedDate = obj.EmployedDate
             };
         }

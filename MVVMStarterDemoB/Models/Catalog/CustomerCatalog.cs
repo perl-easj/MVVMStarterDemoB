@@ -34,12 +34,12 @@ namespace MVVMStarterDemoB.Models.Catalog
             {
                 Key = obj.Key,
                 ImageKey = obj.ImageKey,
-                FullName = obj.FullName,
-                Phone = obj.Phone,
-                Email = obj.Email,
-                Address = obj.Address,
+                FullName = obj.FullName.TrimEnd(' '),
+                Phone = obj.Phone.TrimEnd(' '),
+                Email = obj.Email.TrimEnd(' '),
+                Address = obj.Address.TrimEnd(' '),
                 ZipCode = obj.ZipCode,
-                City = obj.City,
+                City = obj.City.TrimEnd(' '),
                 MinPrice = obj.MinPrice,
                 MaxPrice = obj.MaxPrice,
                 NewsLetter = obj.NewsLetter
