@@ -4,8 +4,7 @@ namespace MVVMStarterDemoB.Data.Domain
 {
     public class Car : DomainAppBase
     {
-        public Car(int key, int imageKey, string licensePlate, string brand, string model, int year, int engineSize,
-            int horsePower, int seats, int price)
+        public Car(int key, int imageKey, string licensePlate, string brand, string model, int year, int engineSize, int horsePower, int seats, int price)
             : base(key, imageKey)
         {
             LicensePlate = licensePlate;

@@ -52,7 +52,7 @@ namespace MVVMStarterDemoB.Models.App
         #endregion
 
         #region Persistency methods
-        public async Task LoadAsync()
+        public async void LoadModel()
         {
             LoadBegins?.Invoke();
 
@@ -64,7 +64,7 @@ namespace MVVMStarterDemoB.Models.App
             LoadEnds?.Invoke();
         }
 
-        public async Task SaveAsync()
+        public async void SaveModel()
         {
             SaveBegins?.Invoke();
 

@@ -8,47 +8,98 @@ namespace MVVMStarterDemoB.ViewModels.App
 {
     public class FileViewModel : AppViewModelBase
     {
+        #region Instance fields
         private bool _isLoading;
+        private bool _isSaving;
+        #endregion
 
+        #region Constructor
         public FileViewModel()
         {
             _isLoading = false;
+            _isSaving = false;
 
             AddCommands();
         }
+        #endregion
 
+        #region Properties for Data Binding
         public bool IsWorking
         {
-            get { return _isLoading; }
+            get { return _isLoading || _isSaving; }
         }
-
 
         public string LoadingText
         {
             get
             {
-                return _isLoading ? "Loading data..." : "";
+                if (_isLoading)
+                {
+                    return "Loading data...";
+                }
+                if (_isSaving)
+                {
+                    return "Saving data...";
+                }
+                return "";
             }
         }
+        #endregion
 
+        #region Methods
+        /// <summary>
+        /// This methods defines what should happen
+        /// when load of data begins.
+        /// </summary>
         private void OnLoadingBegins()
         {
             _isLoading = true;
             UpdateOnStateChange();
         }
 
+        /// <summary>
+        /// This methods defines what should happen
+        /// when load of data ends.
+        /// </summary>
         private void OnLoadingEnds()
         {
             _isLoading = false;
             UpdateOnStateChange();
         }
 
+        /// <summary>
+        /// This methods defines what should happen
+        /// when save of data begins.
+        /// </summary>
+        private void OnSavingBegins()
+        {
+            _isSaving = true;
+            UpdateOnStateChange();
+        }
+
+        /// <summary>
+        /// This methods defines what should happen
+        /// when save of data ends.
+        /// </summary>
+        private void OnSavingEnds()
+        {
+            _isSaving = false;
+            UpdateOnStateChange();
+        }
+
+        /// <summary>
+        /// This methods defines what should happens 
+        /// whenever a state change occurs.
+        /// </summary>
         private void UpdateOnStateChange()
         {
             OnPropertyChanged(nameof(IsWorking));
             OnPropertyChanged(nameof(LoadingText));
         }
 
+        /// <summary>
+        /// Add file-oriented menu entries and associated commands.
+        /// </summary>
         public override void AddCommands()
         {
             NavigationCommands.Add("Load", new RelayCommandAsync(async () =>
@@ -58,11 +109,26 @@ namespace MVVMStarterDemoB.ViewModels.App
                 if (retVal == DialogWithReturnValue.ReturnValueType.OK)
                 {
                     DomainModel.Instance.LoadEnds += OnLoadingEnds;
-                    await DomainModel.Instance.LoadAsync();
+                    DomainModel.Instance.LoadModel();
                 }
                 else
                 {
                     OnLoadingEnds();
+                }
+            }));
+
+            NavigationCommands.Add("Save", new RelayCommandAsync(async () =>
+            {
+                DialogWithReturnValue.ReturnValueType retVal = await DialogWithReturnValue.PresentDialogWithReturnValue("Are you sure you want to SAVE model data?", "SAVE");
+                if (retVal == DialogWithReturnValue.ReturnValueType.OK)
+                {
+                    OnSavingBegins();
+                    DomainModel.Instance.SaveEnds += OnSavingEnds;
+                    DomainModel.Instance.SaveModel();
+                }
+                else
+                {
+                    OnSavingEnds();
                 }
             }));
 
@@ -75,5 +141,6 @@ namespace MVVMStarterDemoB.ViewModels.App
                 }
             }));
         }
+        #endregion
     }
 }

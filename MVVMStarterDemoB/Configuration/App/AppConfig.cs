@@ -10,7 +10,7 @@ namespace MVVMStarterDemoB.Configuration.App
 {
     public class AppConfig
     {
-        public static string ServerURL = "http://localhost:1030/";
+        public static string ServerURL = "http://demoaserver20180315.azurewebsites.net";
 
         public static void Setup(Page mainPage, Frame appFrame)
         {
